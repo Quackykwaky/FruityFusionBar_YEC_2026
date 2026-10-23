@@ -1,0 +1,13 @@
+import { NextResponse } from 'next/server';
+import { removeAdminCookie } from '@/lib/session';
+
+export async function POST() {
+  const response = NextResponse.json({
+    success: true,
+    message: 'Staff successfully logged out',
+  });
+
+  removeAdminCookie(response);
+
+  return response;
+}
